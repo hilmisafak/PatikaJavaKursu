@@ -5,17 +5,19 @@ public class ArmstrongSayilariBulanProgram {
         Scanner scanner = new Scanner(System.in);
         int sayi, basamak, toplam = 0;
 
-        System.out.print("Bir sayı giriniz: ");
+        System.out.print("Bir sayı giriniz(Pozitif+): ");
         sayi = scanner.nextInt();
 
-        sayi = Math.abs(sayi); //Sayıyı pozitife çeviriyor.
+        if (sayi < 0) {
+            System.out.println("Girdiğiniz sayı pozitif olmalıdır.");
+        } else {
+            while (sayi != 0) {
+                basamak = sayi % 10;
+                toplam += basamak;
+                sayi /= 10;
+            }
 
-        while (sayi != 0) {
-            basamak = sayi % 10;
-            toplam += basamak;
-            sayi /= 10;
+            System.out.println("Basamakların toplamı: " + toplam);
         }
-
-        System.out.println("Basamakların toplamı: " + toplam);
     }
 }
